@@ -39,6 +39,6 @@ function getXML()
             document.getElementById("areaInfos").innerHTML = infos;
         }
     };
-    xhttp.open("GET", "http://film/Films/MesFilms.xml", true);
+    xhttp.open("GET", "https://film/Films/MesFilms.xml", true);
     xhttp.send();
 }
