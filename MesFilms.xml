@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<lesfilms>
+  <film idreal="7">
+    <titre>Pandora and the flying Dutchman</titre>
+    <realisateur>7</realisateur>
+    <date>1951</date>
+  </film>
+  <film idreal="8">
+    <titre>Johnny Guitar</titre>
+    <realisateur>8</realisateur>
+    <date>1954</date>
+  </film>
+  <film idreal="9">
+    <titre>Woman under the Influence (A) </titre>
+    <realisateur>9</realisateur>
+    <date>1974</date>
+  </film>
+  <film idreal="10">
+    <titre>Apartment (The) </titre>
+    <realisateur>10</realisateur>
+    <date>1960</date>
+  </film>
+  <film idreal="11">
+    <titre>Victor/Victoria </titre>
+    <realisateur>11</realisateur>
+    <date>1982</date>
+  </film>
+  <film idreal="12">
+    <titre>Modern Times </titre>
+    <realisateur>12</realisateur>
+    <date>1936</date>
+  </film>
+  <film idreal="13">
+    <titre>M&#xE9;pris (Le) </titre>
+    <realisateur>13</realisateur>
+    <date>1963</date>
+  </film>
+  <film idreal="14">
+    <titre>Jour de f&#xEA;te </titre>
+    <realisateur>14</realisateur>
+    <date>1948</date>
+  </film>
+  <film idreal="15">
+    <titre>Olvidados (Los) </titre>
+    <realisateur>15</realisateur>
+    <date>1950</date>
+  </film>
+  <film idreal="16">
+    <titre>West Side Story </titre>
+    <realisateur>16</realisateur>
+    <date>1961</date>
+  </film>
+</lesfilms>
