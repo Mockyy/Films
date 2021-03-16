@@ -51,7 +51,7 @@ function getXML()
             document.getElementById("areaInfos").innerHTML = infos;            
         }
     };
-    xhttp.open("GET", "https://film/Films/MesFilms.xml", true);
+    xhttp.open("GET", "https://film/MesFilms.xml", true);
     xhttp.send();
 }
 
@@ -84,7 +84,7 @@ function XMLSplit()
         }
     };
 
-    xhttp.open("GET", "http://film/MesFilms.xml", true);
+    xhttp.open("GET", "https://film/MesFilms.xml", true);
     xhttp.send();
 }
 
