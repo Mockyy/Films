@@ -1,4 +1,5 @@
 var XMLDoc;
+var XMLPath = "http://film/MesFilms.xml"
 
 function parseXMLFile(texteXML)
 {
@@ -20,7 +21,7 @@ function getXML()
             fillTextAreas(this);
         }
     };
-    xhttp.open("GET", "http://film/MesFilms.xml", true);
+    xhttp.open("GET", XMLPath, true);
     xhttp.send();
 }
 
@@ -88,7 +89,7 @@ function XMLSplit()
         }
     };
 
-    xhttp.open("GET", "http://film/MesFilms.xml", true);
+    xhttp.open("GET", XMLPath, true);
     xhttp.send();
 }
 
@@ -147,7 +148,7 @@ function xpath()
             showResults(xhttp.responseXML);
         }
     };
-    xhttp.open("GET", "http://film/MesFilms.xml", true);
+    xhttp.open("GET", XMLPath, true);
     xhttp.send();
 }
 
