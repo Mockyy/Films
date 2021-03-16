@@ -51,11 +51,7 @@ function getXML()
             document.getElementById("areaInfos").innerHTML = infos;            
         }
     };
-<<<<<<< Updated upstream:Filmjs.js
     xhttp.open("GET", "https://film/Films/MesFilms.xml", true);
-=======
-    xhttp.open("GET", "http://film/MesFilms.xml", true);
->>>>>>> Stashed changes:Film.js
     xhttp.send();
 }
 
