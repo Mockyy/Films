@@ -8,7 +8,6 @@ function parseXMLFile(texteXML)
 
     var films = XMLDoc.getElementsByTagName("titre");
     document.getElementById("areaTitres").innerHTML = films;
-    //document.getElementById("areaFilms").innerHTML = XMLDoc.responseText;
 }
 
 function getXML()
@@ -130,7 +129,7 @@ function afficherReal(selectValue)
                 li.appendChild(txt);
                 document.getElementById('listeReal').appendChild(li);
             }
-        }	
+        }
     }
 }
 
@@ -156,7 +155,7 @@ function showResults(xml)
 {
     var txt = "";
 
-    path = "lesfilms/film/titre";
+    path = "lesfilms/film[date>1960]/titre";
 
     if (xml.evaluate)
     {
@@ -164,7 +163,7 @@ function showResults(xml)
         var result = nodes.iterateNext();
         while (result)
         {
-            txt += result.childNodes[0].nodeValue + "\n";
+            txt += "Noeud : " + result.childNodes[0].nodeName + " | " + result.childNodes[0].nodeValue + "\n";
             result = nodes.iterateNext();
         }
     }
@@ -178,4 +177,6 @@ function showResults(xml)
         }
     }
     document.getElementById("xPathFilms").innerText = txt;
+
+    //afficher noeud du titre 1, du dernier titre, valeur contenue dans le noeud
 }
