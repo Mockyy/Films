@@ -12,16 +12,35 @@
         <h1>Films</h1>
 
         <div id="table">
-            <textarea id="areaFilms"  rows="20" cols="50"></textarea>
+            <textarea id="areaFilms"  rows="10" cols="20"></textarea>
 
-            <textarea id="areaTitres"  rows="20" cols="50"></textarea>
+            <textarea id="areaTitres"  rows="10" cols="20"></textarea>
 
-            <textarea id="areaInfos"  rows="20" cols="80"></textarea>
+            <textarea id="areaInfos"  rows="10" cols="50"></textarea>
+        </div>
 
+        <div>
+            Selection des films d'un réalisateur
+            <select id="selectReal" onchange="afficherReal(this.value)">
+                <option value="">Choisissez un réal</option>
+
+            </select>
+
+            <div id="listeReal"></div>
         </div>
 
 
+        <div>
+            Avec la méthode split() </br>
+            <textarea rows="20" cols="50" id="listeSplit"></textarea>
+        </div>
+
+
+<<<<<<< Updated upstream:index.html
         <script type="text/javascript" src="https://film/Films/Filmjs.js"></script>
+=======
+        <script type="text/javascript" src="http://film/Film.js"></script>
+>>>>>>> Stashed changes:Films.html
     </body>
 
 </html>
