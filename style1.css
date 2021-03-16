@@ -6,5 +6,11 @@ body
 
 h1
 {
+    color: gold;
     left: 40%;
+}
+
+h2
+{
+    color: silver;
 }

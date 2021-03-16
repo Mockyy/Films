@@ -17,42 +17,47 @@ function getXML()
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200)
         {
-            var parser = new DOMParser();
-            XMLDoc = parser.parseFromString(this.responseText, "text/html");
-
-            document.getElementById("areaFilms").innerHTML = this.responseText;
-
-            var films = XMLDoc.getElementsByTagName("film");
-
-            var titres = XMLDoc.getElementsByTagName("titre");
-            var strtitres = "";
-            var infos = "";
-            var reals = XMLDoc.getElementsByTagName("realisateur");
-            var dates = XMLDoc.getElementsByTagName("date");
-
-            var selectReal = document.getElementById("selectReal");
-            var newReal = "";
-            
-            for (let index = 0; index < films.length; index++) {
-                const element = titres[index];
-                const element2 = reals[index];
-                const element3 = dates[index];
-                
-                strtitres = strtitres + element.innerHTML + "\n";
-                infos = infos + "Film : " + element.innerHTML + " Réal : " + element2.innerHTML + " Date : " + element3.innerHTML + "\n";
-                
-                var newOption = document.createElement('option');
-                newOption.setAttribute('value', element2.innerHTML);
-                newOption.innerText = element2.innerHTML;
-                newOption = selectReal.appendChild(newOption);
-            }
-
-            document.getElementById("areaTitres").innerHTML = strtitres;
-            document.getElementById("areaInfos").innerHTML = infos;            
+            fillTextAreas(this);
         }
     };
-    xhttp.open("GET", "https://film/MesFilms.xml", true);
+    xhttp.open("GET", "http://film/MesFilms.xml", true);
     xhttp.send();
+}
+
+function fillTextAreas(xml)
+{
+    var parser = new DOMParser();
+    XMLDoc = parser.parseFromString(xml.responseText, "text/html");
+
+    document.getElementById("areaFilms").innerHTML = xml.responseText;
+
+    var films = XMLDoc.getElementsByTagName("film");
+
+    var titres = XMLDoc.getElementsByTagName("titre");
+    var strtitres = "";
+    var infos = "";
+    var reals = XMLDoc.getElementsByTagName("realisateur");
+    var dates = XMLDoc.getElementsByTagName("date");
+
+    var selectReal = document.getElementById("selectReal");
+    var newReal = "";
+    
+    for (let index = 0; index < films.length; index++) {
+        const element = titres[index];
+        const element2 = reals[index];
+        const element3 = dates[index];
+        
+        strtitres = strtitres + element.innerHTML + "\n";
+        infos = infos + "Film : " + element.innerHTML + " Réal : " + element2.innerHTML + " Date : " + element3.innerHTML + "\n";
+        
+        var newOption = document.createElement('option');
+        newOption.setAttribute('value', element2.innerHTML);
+        newOption.innerText = element2.innerHTML;
+        newOption = selectReal.appendChild(newOption);
+    }
+
+    document.getElementById("areaTitres").innerHTML = strtitres;
+    document.getElementById("areaInfos").innerHTML = infos; 
 }
 
 function XMLSplit()
@@ -79,31 +84,97 @@ function XMLSplit()
                 tableauDate[i - 1] = date[i].split('</date>');
                 
                 document.getElementById("listeSplit").innerHTML += "Titre : " + tableauNom[i - 1][0] + " / Réalisateur : " + tableauReal[i - 1][0] + " / Date : " + tableauDate[i - 1][0] + "\n";
-                console.log("Titre : " + tableauNom[i - 1][0] + " / Réalisateur : " + tableauReal[i - 1][0] + " / Date : " + tableauDate[i - 1][0] + "\n");
             }
         }
     };
 
-    xhttp.open("GET", "https://film/MesFilms.xml", true);
+    xhttp.open("GET", "http://film/MesFilms.xml", true);
     xhttp.send();
 }
 
 function afficherReal(selectValue)
 {
-    var listeRealDom = document.getElementById("listeReal");
-    var listeReal = [];
+    // var listeRealDom = document.getElementById("listeReal");
+    // var listeReal = [];
 
-    var reals = XMLDoc.getElementsByTagName("film");
+    // var reals = XMLDoc.getElementsByTagName("film");
 
-    for (let index = 0; index < reals.length; index++) {
-        const element = reals[index];
+    // for (let index = 0; index < reals.length; index++) {
+    //     const element = reals[index];
 
-        if(element.getElementsByTagName("realisateur")[0].innerText == selectValue)
+    //     if(element.getElementsByTagName("realisateur")[0].innerText == selectValue)
+    //     {
+    //         console.log(element);
+    //         listeReal.push(element);
+    //     }
+    // }
+
+    // listeRealDom.innerHTML = listeReal;
+    // console.table(listeReal);
+
+    var x = XMLDoc.getElementsByTagName('film');
+
+    var liste = document.getElementById('listeReal');
+    liste.innerHTML = '';
+
+
+    for(i = 0; i < x.length; i++)
+    {
+        for(var j = 0; j < selectValue.selectedOptions.length; j++)
         {
-            console.log(element);
-            listeReal.push(element);
+            if(x[i].getAttribute('idreal') == selectValue.selectedOptions[j].value)
+            {
+                var li = document.createElement('li');
+                var txt = document.createTextNode(x[i].firstChild.nextSibling.firstChild.textContent);
+                li.appendChild(txt);
+                document.getElementById('listeReal').appendChild(li);
+            }
+        }	
+    }
+}
+
+var pButton = document.getElementById("pButton").addEventListener("click", XMLSplit);
+
+var xButton = document.getElementById("xPathCick").addEventListener("click", xpath);
+
+function xpath()
+{
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200)
+        {
+            showResults(xhttp.responseXML);
+        }
+    };
+    xhttp.open("GET", "http://film/MesFilms.xml", true);
+    xhttp.send();
+}
+
+function showResults(xml)
+{
+    var txt = "";
+
+    path = "lesfilms/film/titre";
+
+    if (xml.evaluate)
+    {
+        var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+        var result = nodes.iterateNext();
+        while (result)
+        {
+            txt += result.childNodes[0].nodeValue + "\n";
+            result = nodes.iterateNext();
         }
     }
-
-    listeRealDom.innerHTML = listeReal.innerHTML;
+    else if (window.ActiveXObject || xhttp.responseType == "msxml-document")
+    {
+        xml.setProperty("SelectionLanguage", "XPath");
+        nodes = xml.selectNodes(path);
+        for (var i = 0; i < nodes.length; i++)
+        {
+            txt += nodes[i].childNodes[0].nodeValue + "</br>";
+        }
+    }
+    document.getElementById("xPathFilms").innerText = txt;
 }
