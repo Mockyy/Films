@@ -14,3 +14,16 @@ h2
 {
     color: silver;
 }
+
+#night
+{
+    position: absolute;
+    left: 90%;
+    background-color: blueviolet;
+}
+
+textarea
+{
+    background-color: black;
+    color: white;
+}
