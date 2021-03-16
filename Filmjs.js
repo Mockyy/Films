@@ -1,5 +1,5 @@
 var XMLDoc;
-var XMLPath = "http://film/MesFilms.xml"
+var XMLPath = "MesFilms.xml"
 
 function parseXMLFile(texteXML)
 {
