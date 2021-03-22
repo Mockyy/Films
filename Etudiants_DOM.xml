@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Etudiants>
+  <Etudiant id="1">
+    <nom>Mock</nom>
+    <prenom>Romain</prenom>
+  </Etudiant>
+  <Etudiant id="2">
+    <nom>Sardou</nom>
+    <prenom>Michel</prenom>
+  </Etudiant>
+  <Etudiant id="3">
+    <nom>Jean</nom>
+    <prenom>Damien</prenom>
+  </Etudiant>
+  <Etudiant id="4">
+    <nom>Vincent</nom>
+    <prenom>Francky</prenom>
+  </Etudiant>
+</Etudiants>
