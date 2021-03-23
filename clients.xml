@@ -4,15 +4,15 @@
     <NCLI>B062</NCLI>
     <NOM>GOFFIN</NOM>
     <ADRESSE>72, r. de la Gare</ADRESSE>
-    <LOCALITE>NAMUR</LOCALITE>
+    <LOCALITE>Namur</LOCALITE>
     <CAT>B2</CAT>
     <COMPTE>-3200</COMPTE>
   </Client>
   <Client>
     <NCLI>B112</NCLI>
     <NOM>HANSENNE</NOM>
-    <ADRESSE>23, r. DUMONT</ADRESSE>
-    <LOCALITE>POITIERS</LOCALITE>
+    <ADRESSE>23, a. Dumont</ADRESSE>
+    <LOCALITE>Poitiers</LOCALITE>
     <CAT>C1</CAT>
     <COMPTE>1250</COMPTE>
   </Client>
@@ -20,14 +20,14 @@
     <NCLI>B332</NCLI>
     <NOM>MONTI</NOM>
     <ADRESSE>112, r. Neuve</ADRESSE>
-    <LOCALITE>Gen&#x8DA5;</LOCALITE>
+    <LOCALITE>Geneve</LOCALITE>
     <CAT>B2</CAT>
     <COMPTE>0</COMPTE>
   </Client>
   <Client>
     <NCLI>B512</NCLI>
     <NOM>GILLET</NOM>
-    <ADRESSE>14, r. de l`&#x274;</ADRESSE>
+    <ADRESSE>14, r. de l Ete</ADRESSE>
     <LOCALITE>Toulouse</LOCALITE>
     <CAT>B1</CAT>
     <COMPTE>-8700</COMPTE>
@@ -35,10 +35,18 @@
   <Client>
     <NCLI>C003</NCLI>
     <NOM>AVRON</NOM>
-    <ADRESSE>8, r. de la Cure</ADRESSE>
+    <ADRESSE>8, ch. de la Cure</ADRESSE>
     <LOCALITE>Toulouse</LOCALITE>
     <CAT>B1</CAT>
     <COMPTE>-1700</COMPTE>
+  </Client>
+  <Client>
+    <NCLI>C123</NCLI>
+    <NOM>MERCIER</NOM>
+    <ADRESSE>25, r. Lemaitre</ADRESSE>
+    <LOCALITE>Namur</LOCALITE>
+    <CAT>C1</CAT>
+    <COMPTE>-2300</COMPTE>
   </Client>
   <Client>
     <NCLI>C400</NCLI>
@@ -47,14 +55,6 @@
     <LOCALITE>Poitiers</LOCALITE>
     <CAT>B2</CAT>
     <COMPTE>350</COMPTE>
-  </Client>
-  <Client>
-    <NCLI>c123</NCLI>
-    <NOM>MERCIER</NOM>
-    <ADRESSE>25, r. Lema&#xED32;e</ADRESSE>
-    <LOCALITE>Namur</LOCALITE>
-    <CAT>C1</CAT>
-    <COMPTE>-2300</COMPTE>
   </Client>
   <Client>
     <NCLI>D063</NCLI>
@@ -75,7 +75,7 @@
   <Client>
     <NCLI>F011</NCLI>
     <NOM>PONCELET</NOM>
-    <ADRESSE>17, clos des Erables</ADRESSE>
+    <ADRESSE>17, Clos des Erables</ADRESSE>
     <LOCALITE>Toulouse</LOCALITE>
     <CAT>B2</CAT>
     <COMPTE>0</COMPTE>
@@ -83,22 +83,22 @@
   <Client>
     <NCLI>F400</NCLI>
     <NOM>JACOB</NOM>
-    <ADRESSE>78 ch. du Moulin</ADRESSE>
-    <LOCALITE>Bruxeles</LOCALITE>
+    <ADRESSE>78, ch. du Moulin</ADRESSE>
+    <LOCALITE>Bruxelles</LOCALITE>
     <CAT>C2</CAT>
     <COMPTE>0</COMPTE>
   </Client>
   <Client>
     <NCLI>K111</NCLI>
     <NOM>VANBIST</NOM>
-    <ADRESSE>180 r Florimont</ADRESSE>
+    <ADRESSE>180, r. Florimont</ADRESSE>
     <LOCALITE>Lille</LOCALITE>
     <CAT>B1</CAT>
     <COMPTE>720</COMPTE>
   </Client>
   <Client>
     <NCLI>K729</NCLI>
-    <NOM>NEUMANN</NOM>
+    <NOM>NEUMAN</NOM>
     <ADRESSE>40, r. Bransart</ADRESSE>
     <LOCALITE>Toulouse</LOCALITE>
     <CAT/>
@@ -107,7 +107,7 @@
   <Client>
     <NCLI>L422</NCLI>
     <NOM>FRANCK</NOM>
-    <ADRESSE>60, r. de W&#x9C29;on</ADRESSE>
+    <ADRESSE>60, r. de Wepion</ADRESSE>
     <LOCALITE>Namur</LOCALITE>
     <CAT>C1</CAT>
     <COMPTE>0</COMPTE>
@@ -115,7 +115,7 @@
   <Client>
     <NCLI>S127</NCLI>
     <NOM>VANDERKA</NOM>
-    <ADRESSE>3 av. des Roses</ADRESSE>
+    <ADRESSE>3, av. des Roses</ADRESSE>
     <LOCALITE>Namur</LOCALITE>
     <CAT>C1</CAT>
     <COMPTE>-4580</COMPTE>

@@ -12,7 +12,7 @@ $tabEtudiant = array (
 var_dump($tabEtudiant);
 
 
-///////Ecrire le XML à la main
+/////////////Ecrire le XML à la main//////////////////
 
 $txt = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 
@@ -38,7 +38,7 @@ file_put_contents('Etudiants _txt.xml', $txt);
 
 
 
-/////XML WRITER
+/////////////XML WRITER///////////////////
 
 $xml2= new XMLWriter();
 
@@ -66,7 +66,7 @@ foreach ($tabEtudiant as $etud) {
 $xml2->endDocument();
 
 
-//////Dans le DOM
+//////////Dans le DOM/////////////
 $document = new DomDocument();
 
 $document->preserveWhiteSpace = false;
@@ -104,19 +104,19 @@ $document->save('Etudiants_DOM.xml');
 echo "Export XML fini !";
 
 
-//////Charger un XML
+//////Charger un XML/////////////
 $lesEtudiantsXML = simplexml_load_file('Etudiants_DOM.xml');
 var_dump($lesEtudiantsXML);
 
 
-//////Connexion à la base de donnée
+//////Connexion à la base de donnée/////////////
 $connexion = new mysqli('localhost', 'root', "", "clicom_simplifie");
 
 // Check connection
 if ($connexion->connect_error) {
   die("Connection failed: " . $connexion->connect_error);
 }
-echo "Connected successfully";
+echo "Connected successfully to clicom";
 
 //Requête
 $sql = "SELECT * FROM client WHERE 1";
@@ -148,6 +148,64 @@ if ($result->num_rows > 0) {
 }
 
 $documentClient->save('clients.xml');
+
+$connexion->close();
+
+
+///////////BDD depuis XML////////////
+
+//Connexion à la base
+$connexion = new mysqli('localhost', 'root', '');
+
+if($connexion->connect_error)
+{
+    die("Connection failed : " . $connexion->connect_error);
+}
+else
+{
+    echo ("Connected successfully to films \n");
+}
+
+//Creation de la base 'Films'
+$sql = "CREATE DATABASE IF NOT EXISTS films";
+if ($connexion->query($sql) === TRUE)
+{
+    echo ("Database created </br>");
+}
+else
+{
+    echo ("Error creating database " . $connexion->error . "</br>");
+}
+
+$connexion = new mysqli('localhost', 'root', '', 'films');
+
+//Création des tables
+$sql = "CREATE TABLE films (Titre VARCHAR(60) NOT NULL, Realisateur VARCHAR(30) NOT NULL, DateF VARCHAR(5))";
+if (mysqli_query($connexion, $sql))
+{
+    echo ("Table created successfully </br>");
+
+    //Insertion des données
+    $filmsXML = simplexml_load_file('MesFilms.xml');
+    foreach ($filmsXML->children() as $film) {
+
+        $insert = "INSERT INTO films (Titre, Realisateur, DateF) VALUES
+         (" . "\"" . $film->titre . "\"" .  ", " . "\"" .  $film->realisateur . "\"" .  ", " . "\"" .  $film->date . "\")";
+    
+        if ($connexion->query($insert) === TRUE)
+        {
+            echo ("Data inserted ");
+        }
+        else
+        {
+            echo ("Error : " . $connexion->error . "</br>");
+        }
+    }
+}
+else
+{
+    echo ("Error creating table " . $connexion->error . "</br>");
+}
 
 $connexion->close();
 
